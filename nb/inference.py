@@ -1,13 +1,13 @@
 
-
-
 #'pip install tflite-runtime'
 
-#import tflite-runtime as tflite
+#import tflite_runtime as tflite
+import tflite_runtime.interpreter as tflite
 #import tensorflow.lite as tflite
 from PIL import Image
 import numpy as np
 
+from keras_image_helper import create_preprocessor
 
 def preprocessing_input(x):
     x /= 127.5
@@ -55,7 +55,17 @@ def predict(path):
 
     return dict(zip(classes, preds[0]))
 
-predict(path)
+def lambda_handler(event, context):
+    
+    url = event['url']
+    results = predict(url)
+    return results
+
+
+
+
+
+#print(predict(path))
 
 
 
