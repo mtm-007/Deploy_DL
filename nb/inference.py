@@ -3,8 +3,8 @@
 
 #'pip install tflite-runtime'
 
-
-import tensorflow.lite as tflite
+#import tflite-runtime as tflite
+#import tensorflow.lite as tflite
 from PIL import Image
 import numpy as np
 
